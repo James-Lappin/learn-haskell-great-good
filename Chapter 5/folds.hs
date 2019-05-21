@@ -42,8 +42,20 @@ sqrtSums :: Int
 sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
 
 -- function application
+-- ($) :: (a -> b) -> a -> b
+-- f $ x = f x
+
 sqrtSums' :: Int
 sqrtSums' = length (takeWhile (<1000) (scanl1 (+) $ map sqrt [1..])) + 1 
 
 funcApplic :: [Double]
 funcApplic = map ($ 3) [(4+), (10*), (^2), sqrt]
+
+-- function composition
+-- (.) :: (b -> c) -> (a -> b) -> a -> c
+-- f . g = \x -> f (g x)
+negateLambda :: [Int]
+negateLambda = map (\x -> negate (abs x)) [5, -3, -6, 7, -3, 2, -19, 24]
+
+negateComp :: [Int]
+negateComp = map (negate . abs) [5, -3, -6, 7, -3, 2, -19, 24]
