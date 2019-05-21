@@ -37,3 +37,13 @@ last' = foldl1 (\_ x -> x)
 
 and' :: [Bool] -> Bool
 and' xs = foldr (&&) True xs
+
+sqrtSums :: Int
+sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
+
+-- function application
+sqrtSums' :: Int
+sqrtSums' = length (takeWhile (<1000) (scanl1 (+) $ map sqrt [1..])) + 1 
+
+funcApplic :: [Double]
+funcApplic = map ($ 3) [(4+), (10*), (^2), sqrt]
